@@ -24,6 +24,14 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomiaa12/monitor.js"
+  },
+  "bugs": {
+    "url": "https://github.com/tomiaa12/monitor.js/issues"
+  },
+  "homepage": "https://github.com/tomiaa12/monitor.js",
   "keywords": [
     "monitor",
     "plugin"
