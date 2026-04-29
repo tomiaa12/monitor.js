@@ -1,29 +1,36 @@
-# eruda-monitor
+# @tomiaa/monitor.js
 
-[![NPM version][npm-image]][npm-url]
-[![Build status][ci-image]][ci-url]
-[![License][license-image]][npm-url]
+[中文说明](./README.zh.md)
 
-[npm-image]: https://img.shields.io/npm/v/eruda-monitor.svg
-[npm-url]: https://npmjs.org/package/eruda-monitor
-[ci-image]: https://img.shields.io/github/actions/workflow/status/liriliri/eruda-monitor/main.yml?branch=master&style=flat-square
-[ci-url]: https://github.com/liriliri/eruda-monitor/actions/workflows/main.yml 
-[license-image]: https://img.shields.io/npm/l/eruda-monitor.svg
+`@tomiaa/monitor.js` is a browser-side monitor panel component that displays `FPS`, `JS Heap Memory`, and `DOM Nodes`.
 
-Single-file monitor widget for fps, memory and dom nodes.
+This project started from `eruda-monitor`. The original package was an `eruda` plugin that only worked inside the `eruda` tool panel. It has now been converted into an independent single-file package that no longer depends on `eruda` and can be mounted directly into any DOM element.
 
-## Demo
+## What This Package Is
 
-Browse it on your phone: 
-[https://eruda.liriliri.io/?plugin=monitor](https://eruda.liriliri.io/?plugin=monitor)
+The current package name is `@tomiaa/monitor.js`.
 
-## Install
+The current build output is a single file named `monitor.js`, which is suitable for two common scenarios:
 
-```bash
-npm install eruda-monitor --save-dev
-```
+- Install from npm and use it as a browser-side monitor widget in your project
+- Load the built file from a CDN or static assets and mount it directly in a page
 
-```javascript
+## Differences From The Original eruda Plugin
+
+- The original package was an `eruda` plugin and required `eruda` to be loaded first
+- The current package is a standalone monitor panel and does not require `eruda`
+- The original package was rendered inside the `eruda` tools UI
+- The current package mounts directly into a target DOM element via `target`
+- The original package was mainly designed as a mobile debugging extension
+- The current package is better suited as an embeddable in-page performance widget
+
+## Usage
+
+### npm
+
+Install the package: `npm install @tomiaa/monitor.js`
+
+```js
 import createMonitor from '@tomiaa/monitor.js'
 
 createMonitor({
@@ -31,10 +38,11 @@ createMonitor({
 })
 ```
 
-Or load the built single file directly:
+### CDN
 
 ```html
-<script src="./monitor.js"></script>
+<div id="monitor"></div>
+<script src="https://unpkg.com/@tomiaa/monitor.js@latest/monitor.js"></script>
 <script>
   erudaMonitor({
     target: document.getElementById('monitor'),

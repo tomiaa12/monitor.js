@@ -2,14 +2,16 @@
   "name": "@tomiaa/monitor.js",
   "version": "1.0.0",
   "main": "monitor.js",
-  "description": "Eruda plugin for fps and memory",
+  "description": "Standalone browser monitor panel for FPS, memory, and DOM nodes",
   "browserslist": [
     "since 2015",
     "not dead"
   ],
   "files": [
     "monitor.js",
-    "monitor.js.map"
+    "monitor.js.map",
+    "README.md",
+    "README.zh.md"
   ],
   "scripts": {
     "dev": "webpack-dev-server --host 0.0.0.0 --mode development",
