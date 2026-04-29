@@ -1,9 +1,7 @@
 const autoprefixer = require('autoprefixer')
-const postcss = require('postcss')
 const webpack = require('webpack')
 const path = require('path')
 const pkg = require('./package.json')
-const classPrefix = require('postcss-class-prefix')
 const TerserPlugin = require('terser-webpack-plugin')
 
 const banner = pkg.name + ' v' + pkg.version + ' ' + pkg.homepage
@@ -12,26 +10,7 @@ const postcssLoader = {
   loader: 'postcss-loader',
   options: {
     postcssOptions: {
-      plugins: [
-        postcss.plugin('postcss-namespace', function() {
-          // Add '.dev-tools .tools ' to every selector.
-          return function(root) {
-            root.walkRules(function(rule) {
-              if (!rule.selectors) return rule
-
-              rule.selectors = rule.selectors.map(function(
-                selector
-              ) {
-                return '.dev-tools .tools ' + selector
-              })
-            })
-          }
-        }),
-        classPrefix('eruda-', {
-          ignore: [/luna-*/]
-        }),
-        autoprefixer
-      ]
+      plugins: [autoprefixer]
     }
   }
 }
@@ -51,7 +30,7 @@ module.exports = (env, argv) => {
     },
     output: {
       path: __dirname,
-      filename: 'eruda-monitor.js',
+      filename: 'monitor.js',
       publicPath: '/assets/',
       library: ['erudaMonitor'],
       libraryTarget: 'umd'

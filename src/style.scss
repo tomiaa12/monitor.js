@@ -1,12 +1,17 @@
-.monitor {
+.eruda-monitor {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   padding: 10px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  .memory,
-  .dom-nodes {
-    margin: 10px 0;
-  }
-  .luna-performance-monitor {
-    border-color: var(--border) !important;
-  }
+}
+
+.eruda-monitor * {
+  box-sizing: border-box;
+}
+
+.eruda-monitor-memory,
+.eruda-monitor-dom-nodes {
+  margin-top: 10px;
 }

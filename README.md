@@ -10,7 +10,7 @@
 [ci-url]: https://github.com/liriliri/eruda-monitor/actions/workflows/main.yml 
 [license-image]: https://img.shields.io/npm/l/eruda-monitor.svg
 
-Eruda plugin for monitoring fps, memory and dom nodes.
+Single-file monitor widget for fps, memory and dom nodes.
 
 ## Demo
 
@@ -24,7 +24,20 @@ npm install eruda-monitor --save-dev
 ```
 
 ```javascript
-eruda.add(erudaMonitor);
+import createMonitor from '@tomiaa/monitor.js'
+
+createMonitor({
+  target: document.getElementById('monitor'),
+})
 ```
 
-Make sure Eruda is loaded before this plugin, otherwise won't work.
+Or load the built single file directly:
+
+```html
+<script src="./monitor.js"></script>
+<script>
+  erudaMonitor({
+    target: document.getElementById('monitor'),
+  })
+</script>
+```

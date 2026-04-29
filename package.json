@@ -1,15 +1,15 @@
 {
-  "name": "eruda-monitor",
-  "version": "1.1.2",
-  "main": "eruda-monitor.js",
+  "name": "@tomiaa/monitor.js",
+  "version": "1.0.0",
+  "main": "monitor.js",
   "description": "Eruda plugin for fps and memory",
   "browserslist": [
     "since 2015",
     "not dead"
   ],
   "files": [
-    "eruda-monitor.js",
-    "eruda-monitor.js.map"
+    "monitor.js",
+    "monitor.js.map"
   ],
   "scripts": {
     "dev": "webpack-dev-server --host 0.0.0.0 --mode development",
@@ -17,10 +17,13 @@
     "ci": "npm run lint && npm run build && npm run es5",
     "lint": "eslint src/**/*.js",
     "format": "lsla prettier \"src/*.{js,scss}\" \"*.json\" --write",
-    "es5": "es-check es5 eruda-monitor.js"
+    "es5": "es-check es5 monitor.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
-    "eruda",
+    "monitor",
     "plugin"
   ],
   "author": "surunzi",

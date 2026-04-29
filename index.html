@@ -1,26 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>Eruda-monitor</title>
-    </head>
-    <body>
-        <button id="add-nodes">Add 100 nodes</button>
-        <div class="nodes"></div>
-        <script src="node_modules/eruda/eruda.js"></script>
-        <script>eruda.init({tool: []});</script>
-        <script src="assets/eruda-monitor.js"></script>
-        <script>eruda.add(erudaMonitor).show('monitor').show();</script>
-        <script>
-            document.getElementById('add-nodes').addEventListener('click', function() {
-                const nodes = document.querySelector('.nodes');
-                for (let i = 0; i < 100; i++) {
-                    const node = document.createElement('div');
-                    node.textContent = 'Node ' + i;
-                    nodes.appendChild(node);
-                }
-            });
-        </script>
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    >
+    <title>eruda-monitor</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 24px;
+        font-family: Arial, sans-serif;
+      }
+
+      #monitor {
+        width: 420px;
+        height: 420px;
+        border: 1px solid #dcdfe6;
+        border-radius: 12px;
+      }
+
+      .nodes {
+        margin-top: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="add-nodes">Add 100 nodes</button>
+    <div id="monitor"></div>
+    <div class="nodes"></div>
+
+    <script src="assets/monitor.js"></script>
+    <script>
+      erudaMonitor({
+        target: document.getElementById('monitor'),
+      })
+
+      document
+        .getElementById('add-nodes')
+        .addEventListener('click', function() {
+          const nodes = document.querySelector('.nodes')
+
+          for (let i = 0; i < 100; i++) {
+            const node = document.createElement('div')
+            node.textContent = 'Node ' + i
+            nodes.appendChild(node)
+          }
+        })
+    </script>
+  </body>
 </html>
